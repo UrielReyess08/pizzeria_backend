@@ -1,0 +1,16 @@
+INSERT INTO user (name, password) VALUES ('admin', '123');
+
+INSERT INTO product (code, name, price, stock) VALUES 
+('P001', 'Pizza Napolitana', 25.00, 10),
+('P002', 'Pizza Pepperoni', 27.00, 15),
+('P003', 'Pizza Hawaiana', 26.50, 12),
+('P004', 'Pizza Cuatro Quesos', 28.00, 8),
+('P005', 'Pizza Vegetariana', 24.00, 20);
+
+
+INSERT INTO SALE (client, date, discount, dni, quantity, total, product_id) VALUES 
+('Juan Pérez', '2025-02-24', 5.00, '12345678', 2, 50.00, 1),
+('María López', '2025-02-24', 3.50, '87654321', 1, 27.00, 2),
+('Carlos Sánchez', '2025-02-24', 0.00, '11223344', 3, 79.50, 3),
+('Ana Torres', '2025-02-24', 2.00, '44332211', 1, 26.00, 4),
+('Luis Ramírez', '2025-02-24', 4.50, '99887766', 2, 48.00, 5);
