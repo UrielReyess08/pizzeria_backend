@@ -22,7 +22,7 @@ public class SaleController {
         return saleService.findSaleById(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/allSales")
     public List<Sale> findAllSales() {
         return saleService.findAllSales();
     }
