@@ -14,7 +14,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "code", length = 15, nullable = false)
+    @Column(name = "code", length = 15, nullable = false, unique = true)
     private String code;
 
     @Column(name = "name", nullable = false)
@@ -25,6 +25,9 @@ public class Product {
 
     @Column(name = "stock", nullable = false)
     private Integer stock;
+
+    @Column(name = "size", nullable = false)
+    private String size;
 
 
 }

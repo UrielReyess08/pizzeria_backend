@@ -18,7 +18,6 @@ public class SaleService {
         return saleRepository.findByNumberSale(numberSale);
     }
 
-
     public List<Sale> findAllSales() {
         return saleRepository.findAll();
     }

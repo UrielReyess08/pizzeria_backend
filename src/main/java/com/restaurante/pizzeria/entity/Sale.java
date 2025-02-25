@@ -40,7 +40,8 @@ public class Sale {
     private Double total;
 
     @Column(name = "discount", nullable = false)
-    private Boolean discount;
+    private Double discount;
+
 
 
 }
