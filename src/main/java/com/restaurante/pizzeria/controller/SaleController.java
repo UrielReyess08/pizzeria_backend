@@ -17,9 +17,9 @@ public class SaleController {
         this.saleService = saleService;
     }
 
-    @GetMapping("/{id}")
-    public Optional<Sale> findSaleById(@PathVariable int id) {
-        return saleService.findSaleById(id);
+    @GetMapping("/{numberSale}")
+    public Optional<Sale> findSaleByNumberSale(@PathVariable String numberSale) {
+        return saleService.findSaleByNumberSale(numberSale);
     }
 
     @GetMapping("/allSales")

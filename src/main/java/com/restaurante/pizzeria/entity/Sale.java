@@ -17,8 +17,9 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "number_sale", length = 15, nullable = false)
-    private String number_sale;
+
+    @Column(name = "number_sale", length = 15,unique = true, nullable = false)
+    private String numberSale;
 
     @Column(name = "dni", length = 11, nullable = false)
     private String dni;

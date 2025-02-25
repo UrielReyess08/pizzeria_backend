@@ -14,9 +14,10 @@ public class SaleService {
     public SaleService(SaleRepository saleRepository) {
         this.saleRepository = saleRepository;
     }
-    public Optional<Sale> findSaleById(int id) {
-        return saleRepository.findById(id);
+    public Optional<Sale> findSaleByNumberSale(String numberSale) {
+        return saleRepository.findByNumberSale(numberSale);
     }
+
 
     public List<Sale> findAllSales() {
         return saleRepository.findAll();
