@@ -21,6 +21,7 @@ public class SaleService {
     public List<Sale> findAllSales() {
         return saleRepository.findAll();
     }
+
     public Sale saveSale(Sale sale) {
         return saleRepository.save(sale);
     }
@@ -29,8 +30,8 @@ public class SaleService {
         Sale sale = saleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Venta no encontrada"));
 
-        sale.setStatus(false); // Cambia el estado a false en lugar de eliminarla físicamente
-        return saleRepository.save(sale); // Guarda los cambios en la BD
+        sale.setStatus(false);
+        return saleRepository.save(sale);
     }
 
 
