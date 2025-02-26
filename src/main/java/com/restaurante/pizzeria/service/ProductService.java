@@ -16,10 +16,7 @@ public class ProductService {
     }
 
     public List<Product> findAllActiveProducts() {
-        return productRepository.findAll()
-                .stream()
-                .filter(Product::isStatus)
-                .collect(Collectors.toList());
+        return productRepository.findAllActiveProducts();
     }
 
     public List<Product> findProductByCode(String code) {
