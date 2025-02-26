@@ -6,10 +6,10 @@ INSERT INTO product (code, name, price, size, status, stock) VALUES
                                                                  ('P005', 'Pizza Vegetariana', 24.00, 'Pequeña', 1, 18);
 
 INSERT INTO sale (client, date, discount, dni, number_sale, quantity, status, total, product_id) VALUES
-                                                                                                     ('Juan Pérez', '2025-02-25', 2.50, '12345678901', 'S001', 2, 1, 50.00, 1),
-                                                                                                     ('María Gómez', '2025-02-24', 0.00, '98765432109', 'S002', 1, 1, 27.00, 2),
-                                                                                                     ('Carlos Ríos', '2025-02-23', 3.00, '45612378902', 'S003', 3, 1, 75.00, 3),
-                                                                                                     ('Ana Torres', '2025-02-22', 1.50, '85296374100', 'S004', 2, 1, 60.00, 4),
-                                                                                                     ('Luis Mendoza', '2025-02-21', 0.00, '74125896305', 'S005', 1, 1, 24.00, 5);
+                                                                                                     ('Juan Pérez', '2025-02-25', 2.50, '12345678901', 'V001', 2, 1, 50.00, 1),
+                                                                                                     ('María Gómez', '2025-02-24', 0.00, '98765432109', 'V002', 1, 1, 27.00, 2),
+                                                                                                     ('Carlos Ríos', '2025-02-23', 3.00, '45612378902', 'V003', 3, 1, 75.00, 3),
+                                                                                                     ('Ana Torres', '2025-02-22', 1.50, '85296374100', 'V004', 2, 1, 60.00, 4),
+                                                                                                     ('Luis Mendoza', '2025-02-21', 0.00, '74125896305', 'V005', 1, 1, 24.00, 5);
 INSERT INTO user (name, password) VALUES
                                               ('admin', '123');
