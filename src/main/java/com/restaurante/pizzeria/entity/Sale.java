@@ -17,6 +17,8 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "status", nullable = false)
+    private boolean status = true;
 
     @Column(name = "number_sale", length = 15,unique = true, nullable = false)
     private String numberSale;

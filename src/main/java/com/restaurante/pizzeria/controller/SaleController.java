@@ -5,7 +5,9 @@ import com.restaurante.pizzeria.service.SaleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -31,9 +33,12 @@ public class SaleController {
         return saleService.saveSale(sale);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteSale(@PathVariable int id) {
+    public ResponseEntity<Map<String, String>> deleteSale(@PathVariable int id) {
         saleService.deleteSale(id);
-        return ResponseEntity.noContent().build();
+        Map<String, String> response = new HashMap<>();
+        response.put("mensaje", "Venta eliminada correctamente");
+        return ResponseEntity.ok(response);
     }
+
 
 }

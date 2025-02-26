@@ -35,7 +35,7 @@ public class ProductController {
         return productService.updateProduct(product, id);
     }
 
-    @PatchMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public Product deleteProduct(@PathVariable int id) {
         return productService.deleteProduct(id);
     }

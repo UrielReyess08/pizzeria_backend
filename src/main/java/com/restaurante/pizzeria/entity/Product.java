@@ -14,6 +14,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "status", nullable = false)
+    private boolean status = true;
+
+
     @Column(name = "code", length = 15, nullable = false, unique = true)
     private String code;
 

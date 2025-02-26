@@ -28,7 +28,6 @@ public class ProductService {
     public Product updateProduct(Product product, int id) {
         Product eProduct = productRepository.findById(id).orElseThrow(null);
             if(eProduct != null){
-
                 eProduct.setCode(product.getCode());
                 eProduct.setName(product.getName());
                 eProduct.setPrice(product.getPrice());
@@ -38,9 +37,14 @@ public class ProductService {
             return productRepository.save(product);
     }
     public Product deleteProduct(int id) {
-        Product eProduct = productRepository.findById(id).orElseThrow(null);
-        return productRepository.save(eProduct);
+        Product eProduct = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+
+        eProduct.setStatus(false); // Cambia el status a false
+        return productRepository.save(eProduct); // Guarda el cambio en la BD
     }
+
+
 
 
 }

@@ -25,9 +25,14 @@ public class SaleService {
         return saleRepository.save(sale);
     }
 
-    public void deleteSale(int id) {
-        saleRepository.deleteById(id);
+    public Sale deleteSale(int id) {
+        Sale sale = saleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Venta no encontrada"));
+
+        sale.setStatus(false); // Cambia el estado a false en lugar de eliminarla físicamente
+        return saleRepository.save(sale); // Guarda los cambios en la BD
     }
+
 
 
 
