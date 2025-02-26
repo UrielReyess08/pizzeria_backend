@@ -28,10 +28,12 @@ public class ProductService {
     public Product updateProduct(Product product, int id) {
         Product eProduct = productRepository.findById(id).orElseThrow(null);
             if(eProduct != null){
+                eProduct.setStatus(product.isStatus());
                 eProduct.setCode(product.getCode());
                 eProduct.setName(product.getName());
                 eProduct.setPrice(product.getPrice());
                 eProduct.setStock(product.getStock());
+                eProduct.setSize(product.getSize());
 
             }
             return productRepository.save(product);
