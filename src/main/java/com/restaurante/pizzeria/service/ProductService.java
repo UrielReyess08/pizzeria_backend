@@ -5,6 +5,7 @@ import com.restaurante.pizzeria.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -15,7 +16,10 @@ public class ProductService {
     }
 
     public List<Product> findAllActiveProducts() {
-        return productRepository.findAll();
+        return productRepository.findAll()
+                .stream()
+                .filter(Product::isStatus)
+                .collect(Collectors.toList());
     }
 
     public List<Product> findProductByCode(String code) {
@@ -38,12 +42,11 @@ public class ProductService {
             }
             return productRepository.save(product);
     }
-    public Product deleteProduct(int id) {
+    public Product updateProductStatus(int id) {
         Product eProduct = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
-
-        eProduct.setStatus(false); // Cambia el status a false
-        return productRepository.save(eProduct); // Guarda el cambio en la BD
+        eProduct.setStatus(false);
+        return productRepository.save(eProduct);
     }
 
 
