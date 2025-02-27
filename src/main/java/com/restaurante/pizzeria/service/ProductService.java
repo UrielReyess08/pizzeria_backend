@@ -2,6 +2,7 @@ package com.restaurante.pizzeria.service;
 
 import com.restaurante.pizzeria.entity.Product;
 import com.restaurante.pizzeria.repository.ProductRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +24,11 @@ public class ProductService {
         return productRepository.findProductByCode(code);
     }
     public Product saveProduct(Product product) {
-        return productRepository.save(product);
+        try {
+            return productRepository.save(product);
+        } catch (DataIntegrityViolationException e) {
+            throw new RuntimeException("Este código ya ha sido registrado");
+        }
     }
 
     public Product updateProduct(Product product, int id) {
