@@ -2,6 +2,8 @@ package com.restaurante.pizzeria.controller;
 
 import com.restaurante.pizzeria.entity.Product;
 import com.restaurante.pizzeria.service.ProductService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,8 +28,12 @@ public class ProductController {
     }
 
     @PostMapping("/save")
-    public Product saveProduct(@RequestBody Product product) {
-        return productService.saveProduct(product);
+    public ResponseEntity<?> saveProduct(@RequestBody Product product) {
+        try {
+            return ResponseEntity.ok(productService.saveProduct(product));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
+        }
     }
 
     @PutMapping("/update/{id}")
