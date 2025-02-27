@@ -1,15 +1,13 @@
 package com.restaurante.pizzeria.controller;
 
+import com.restaurante.pizzeria.entity.Product;
 import com.restaurante.pizzeria.entity.Sale;
 import com.restaurante.pizzeria.service.SaleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -22,8 +20,10 @@ public class SaleController {
     }
 
     @GetMapping("/{numberSale}")
-    public Optional<Sale> findSaleByNumberSale(@PathVariable String numberSale) {
-        return saleService.findSaleByNumberSale(numberSale);
+    public ResponseEntity<Sale> findSaleByNumberSale(@PathVariable String numberSale) {
+        return saleService.findSaleByNumberSale(numberSale)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/allSales")
@@ -37,13 +37,7 @@ public class SaleController {
     public Sale saveSale(@RequestBody Sale sale) {
         return saleService.saveSale(sale);
     }
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Map<String, String>> deleteSale(@PathVariable int id) {
-        saleService.deleteSale(id);
-        Map<String, String> response = new HashMap<>();
-        response.put("mensaje", "Venta eliminada correctamente");
-        return ResponseEntity.ok(response);
-    }
+
 
     @PutMapping("/disable/{numberSale}")
     public ResponseEntity<Map<String, String>> disableSale(@PathVariable String numberSale) {
@@ -51,7 +45,7 @@ public class SaleController {
 
         if (optionalSale.isPresent()) {
             Sale sale = optionalSale.get();
-            sale.setStatus(false);  // Desactivar la venta
+            sale.setStatus(false);
             saleService.saveSale(sale);
 
             Map<String, String> response = new HashMap<>();

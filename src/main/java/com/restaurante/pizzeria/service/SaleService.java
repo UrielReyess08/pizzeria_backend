@@ -47,17 +47,11 @@ public class SaleService {
             product.setStatus(false);
         }
 
-        productRepository.save(product);  // Guardar cambios en el producto
-        return saleRepository.save(sale); // Guardar la venta
-    }
-
-
-    public Sale deleteSale(int id) {
-        Sale sale = saleRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Venta no encontrada"));
-
-        sale.setStatus(false);
+        productRepository.save(product);
         return saleRepository.save(sale);
     }
+
+
+
 
 }
