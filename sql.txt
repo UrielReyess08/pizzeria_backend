@@ -1,15 +1,17 @@
-INSERT INTO product (code, name, price, size, status, stock) VALUES
-                                                                 ('P001', 'Pizza Napolitana', 25.50, 'Mediana', 1, 15),
-                                                                 ('P002', 'Pizza Pepperoni', 27.00, 'Grande', 1, 20),
-                                                                 ('P003', 'Pizza Hawaiana', 26.00, 'Mediana', 1, 10),
-                                                                 ('P004', 'Pizza Cuatro Quesos', 30.00, 'Grande', 1, 12),
-                                                                 ('P005', 'Pizza Vegetariana', 24.00, 'Pequeña', 1, 18);
+INSERT INTO user (name,password) VALUES
+('admin','123')
 
-INSERT INTO sale (client, date, discount, dni, number_sale, quantity, status, total, product_id) VALUES
-                                                                                                     ('Juan Pérez', '2025-02-25', 2.50, '12345678901', 'V001', 2, 1, 50.00, 1),
-                                                                                                     ('María Gómez', '2025-02-24', 0.00, '98765432109', 'V002', 1, 1, 27.00, 2),
-                                                                                                     ('Carlos Ríos', '2025-02-23', 3.00, '45612378902', 'V003', 3, 1, 75.00, 3),
-                                                                                                     ('Ana Torres', '2025-02-22', 1.50, '85296374100', 'V004', 2, 1, 60.00, 4),
-                                                                                                     ('Luis Mendoza', '2025-02-21', 0.00, '74125896305', 'V005', 1, 1, 24.00, 5);
-INSERT INTO user (name, password) VALUES
-                                              ('admin', '123');
+INSERT INTO product (id, code, name, price, size, status, stock) VALUES
+(1, 'P001', 'Pizza Hawaiana', 26.00, 'Mediana', 1, '15'),
+(2, 'P002', 'Pizza Cuatro Quesos', 28.50, 'Grande', 1, '10'),
+(3, 'P003', 'Pizza Vegetariana', 24.00, 'Familiar', 1, '12'),
+(4, 'P004', 'Pizza BBQ Chicken', 27.50, 'Personal', 1, '18'),
+(5, 'P005', 'Pizza Margarita', 23.50, 'Mediana', 1, '22');
+
+
+INSERT INTO sale (id, client, date, discount, dni, number_sale, quantity, status, total, product_id) VALUES
+(1, 'Jose Martinez', '2025-02-27', 2.50, '12345678', 'V001', 2, 1, 48.50, 1),
+(2, 'Luis Herrera', '2025-02-27', 0.00, '87654321', 'V002', 1, 1, 26.00, 2),
+(3, 'Ricardo Gomez', '2025-02-27', 3.00, '11223344', 'V003', 3, 1, 80.50, 3),
+(4, 'Fernando Diaz', '2025-02-27', 1.50, '55667788', 'V004', 1, 1, 25.00, 4),
+(5, 'Javier Castro', '2025-02-27', 5.00, '99887766', 'V005', 2, 1, 50.00, 5);
